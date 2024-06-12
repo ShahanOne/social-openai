@@ -30,7 +30,7 @@ export default function Home() {
   };
 
   return (
-    <div className="flex flex-col justify-center p-52 bg-gradient-to-r from-indigo-100 to-emerald-100">
+    <div className="flex flex-col justify-center p-52 bg-gradient-to-r from-indigo-100 to-emerald-100 h-screen">
       <div className="flex flex-col bg-white rounded-2xl p-6 shadow">
         <form onSubmit={handleSubmit}>
           <input
