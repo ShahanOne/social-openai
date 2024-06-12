@@ -1,13 +1,13 @@
 'use client';
-import { useState } from 'react';
+import { useState, FormEvent } from 'react';
 import axios from 'axios';
 import Posts from '@/components/Posts';
 
 export default function Home() {
-  const [prompt, setPrompt] = useState('');
-  const [post, setPost] = useState('');
+  const [prompt, setPrompt] = useState<string>('');
+  const [post, setPost] = useState<string>('');
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     try {
@@ -24,7 +24,6 @@ export default function Home() {
 
       setPost(generatedPost);
       setPrompt('');
-      return;
     } catch (error) {
       console.error('Error generating or saving post:', error);
     }
@@ -32,7 +31,7 @@ export default function Home() {
 
   return (
     <div className="flex flex-col justify-center p-52 bg-gradient-to-r from-indigo-100 to-emerald-100">
-      <div className="flex flex-col  bg-white rounded-2xl p-6 shadow">
+      <div className="flex flex-col bg-white rounded-2xl p-6 shadow">
         <form onSubmit={handleSubmit}>
           <input
             className="bg-slate-100 w-full rounded p-2 my-2"
@@ -41,7 +40,7 @@ export default function Home() {
             onChange={(e) => setPrompt(e.target.value)}
             placeholder="Enter your prompt"
             required
-          />{' '}
+          />
           <br />
           <button
             type="submit"
@@ -49,7 +48,7 @@ export default function Home() {
           >
             Generate Post
           </button>
-        </form>{' '}
+        </form>
       </div>
 
       <div className="rounded-lg shadow my-4 p-2">

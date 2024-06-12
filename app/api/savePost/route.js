@@ -12,7 +12,7 @@ export default async function handler(req, res) {
 
   try {
     const response = await appendRow(
-      'your-spreadsheet-id',
+      'some-sheet-id-to-add',
       'Sheet1!A:C',
       values
     );

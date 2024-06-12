@@ -1,8 +1,13 @@
-// components/PostList.js
 import { useEffect, useState } from 'react';
 
+interface Post {
+  timestamp: string;
+  prompt: string;
+  post: string;
+}
+
 export default function PostList() {
-  const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState<Post[]>([]);
 
   useEffect(() => {
     async function fetchPosts() {

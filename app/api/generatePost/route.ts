@@ -3,7 +3,7 @@ import OpenAI from 'openai';
 
 const openai = new OpenAI(process.env.OPENAI_API_KEY);
 
-export async function POST(req) {
+export async function POST(req:any) {
   const { prompt } = await req.json();
 
   if (!prompt) {
@@ -13,7 +13,7 @@ export async function POST(req) {
   try {
     const completion = await openai.chat.completions.create({
       messages: [
-        // { role: 'system', content: 'You are a helpful assistant.' },
+        { role: 'system', content: 'Generate short social media post about ' },
         { role: 'user', content: prompt },
       ],
       model: 'gpt-3.5-turbo',
